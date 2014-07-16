@@ -4,6 +4,7 @@ import akka.actor.{Props, ActorRef, ActorLogging, Actor}
 import com.typesafe.config.ConfigFactory
 import scala.util.Try
 import org.apache.lucene.store.{Directory, RAMDirectory}
+import com.example.actor.PersistenceActor
 
 
 /**

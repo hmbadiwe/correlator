@@ -19,7 +19,6 @@ import com.example.domain.CommonMessage
  */
 
 
-case class CommonMessage( map : Map[String, String])
 
 trait AlarmPersistence {
   def save(alarm:CommonMessage)

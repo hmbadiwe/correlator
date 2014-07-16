@@ -1,7 +1,6 @@
 package com.example.actor
 
 import akka.actor.{ActorLogging, Actor}
-import com.cisco.phalanx.persistence.lucene.LuceneAlarmPersistence
 import org.joda.time.format.ISODateTimeFormat
 import org.apache.lucene.store.Directory
 import scala.compat.Platform

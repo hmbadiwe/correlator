@@ -69,6 +69,7 @@ object Dependencies {
 		val logback = "1.1.1"
 		val scala = "2.10.1"
     val jodaTime = "2.3"
+    val json4s = "3.2.7"
 	}
 
 	val commonsLang = "org.apache.commons" % "commons-lang3" % Versions.commonsLang3
@@ -82,8 +83,10 @@ object Dependencies {
 	val luceneAnalyzers = "org.apache.lucene" % "lucene-analyzers-common" % Versions.lucene
 	val luceneQueryParser = "org.apache.lucene" % "lucene-queryparser" % Versions.lucene
   val jodaTime  = "joda-time"     % "joda-time"               % Versions.jodaTime
+  val json4sJackson       = "org.json4s"                    %% "json4s-jackson"         % Versions.json4s
+  val json4sNative        = "org.json4s"                    %% "json4s-native"          % Versions.json4s
 
-	val commonDeps = Seq( logbackCore, logbackClassic, slf4j, scalaTest, akka, jodaTime)
+	val commonDeps = Seq( logbackCore, logbackClassic, slf4j, scalaTest, akka, jodaTime, json4sJackson, json4sNative)
 	val restDeps = Seq( unfiltered ) ++ commonDeps
 	val persistenceDeps = Seq( luceneCore, luceneAnalyzers, luceneQueryParser ) ++ commonDeps
 	val correlatorDeps = commonDeps

@@ -8,6 +8,7 @@ package com.example.domain
  * To change this template use File | Settings | File Templates.
  */
 case class CommonMessage( map : Map[String, String])
+case class SourceMessage( string : String )
 case class CommonMessageList( messageList: List[ CommonMessage] )
 object CommonMessage{
   def apply( tupleList: ( String, String )* ) : CommonMessage = CommonMessage( tupleList.toMap )
