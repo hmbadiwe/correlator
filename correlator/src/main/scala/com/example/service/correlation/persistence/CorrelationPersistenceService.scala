@@ -1,14 +1,16 @@
 package com.example.service.correlation.persistence
 
-import com.example.service.persistence.lucene.{LuceneAlarmPersistence, AlarmPersistence}
+import com.example.common.domain._
+
 import akka.actor.ActorRef
-import scalaxx.util._
+
 import akka.pattern.ask
+import com.example.persistence.AlarmPersistence
 import scala.concurrent.Await
 import org.slf4j.LoggerFactory
 import akka.util.Timeout
 import scala.concurrent.duration._
-import scalaxx.util.SearchIndexedMessage
+
 
 class CorrelationPersistenceService( persistenceActorRef : ActorRef ) extends AlarmPersistence {
   lazy val log = LoggerFactory.getLogger( getClass )

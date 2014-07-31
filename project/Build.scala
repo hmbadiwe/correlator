@@ -16,22 +16,29 @@ object CorrelationBuild extends Build{
     	javacOptions  ++= Seq("-Xlint:unchecked", "-Xlint:deprecation")
 	)
 
+
+
 	lazy val CorrelationProject = Project(
 		id = "correlation",
 		base = file( "."),
 		settings = defaultSettings
-	) aggregate( Persistence, Correlator, Rest )
+	) aggregate( Common, Persistence, Correlator, Rest )
 
+  lazy val Common = Project(
+    id = "common",
+    base = file("common"),
+    settings = defaultSettings ++ Seq( libraryDependencies ++= Dependencies.commonDeps)
+  )
 	lazy val Persistence = Project(
 		id = "persistence",
 		base = file( "persistence"),
 		settings = defaultSettings ++ Seq( libraryDependencies ++= Dependencies.persistenceDeps )
-	)
+	) dependsOn( Common )
 	lazy val Correlator = Project(
 		id = "correlator",
 		base = file( "correlator"),
 		settings = defaultSettings ++ Seq( libraryDependencies ++= Dependencies.correlatorDeps )
-	)
+	) dependsOn( Common, Persistence)
 	lazy val Rest = Project(
 		id = "rest",
 		base = file( "rest"),
@@ -78,6 +85,7 @@ object Dependencies {
 	val logbackClassic = "ch.qos.logback" % "logback-classic" % Versions.logback
 	val logbackCore = "ch.qos.logback" % "logback-core" % Versions.logback
 	val akka = "com.typesafe.akka" %% "akka-actor" % Versions.akkaVersion
+  val akkakernel  = "com.typesafe.akka"  %%  "akka-kernel"   % Versions.akkaVersion
 	val scalaTest = "org.scalatest" %% "scalatest" % Versions.scalaTest % "test"
 	val luceneCore = "org.apache.lucene" % "lucene-core" % Versions.lucene
 	val luceneAnalyzers = "org.apache.lucene" % "lucene-analyzers-common" % Versions.lucene
@@ -86,7 +94,7 @@ object Dependencies {
   val json4sJackson       = "org.json4s"                    %% "json4s-jackson"         % Versions.json4s
   val json4sNative        = "org.json4s"                    %% "json4s-native"          % Versions.json4s
 
-	val commonDeps = Seq( logbackCore, logbackClassic, slf4j, scalaTest, akka, jodaTime, json4sJackson, json4sNative)
+	val commonDeps = Seq( logbackCore, logbackClassic, slf4j, scalaTest, akka, akkakernel, jodaTime, json4sJackson, json4sNative)
 	val restDeps = Seq( unfiltered ) ++ commonDeps
 	val persistenceDeps = Seq( luceneCore, luceneAnalyzers, luceneQueryParser ) ++ commonDeps
 	val correlatorDeps = commonDeps

@@ -1,8 +1,11 @@
 package com.example.utils
 
+import com.example.common.domain.{MidParsedSourceMessage, CommonMessageList}
+import com.example.util.CommonMessageDeserializer
 import org.json4s._
-import org.json4s.JsonMethods._
-import com.example.domain.{CommonMessageList, MidParsedSourceMessage}
+import org.json4s.native.JsonMethods._
+import org.json4s.jackson.Serialization.write
+
 
 /**
  * Created with IntelliJ IDEA.

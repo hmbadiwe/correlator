@@ -1,16 +1,13 @@
 package com.example.actor
 
 import akka.actor.{ActorLogging, Actor}
+import com.example.common.domain._
 import org.joda.time.format.ISODateTimeFormat
 import org.apache.lucene.store.Directory
 import scala.compat.Platform
 import org.apache.lucene.search.{MatchAllDocsQuery, SortField, Sort}
 import org.apache.lucene.index.DirectoryReader
 import com.example.persistence.LuceneAlarmPersistence
-import com.example.domain._
-import com.example.domain.MidParsedSourceMessage
-import com.example.domain.SearchIndexedMessage
-import com.example.domain.FindIndexedMessage
 
 /**
  * Created with IntelliJ IDEA.

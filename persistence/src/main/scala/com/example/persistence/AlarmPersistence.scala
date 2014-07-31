@@ -1,5 +1,6 @@
 package com.example.persistence
 
+import com.example.common.domain.CommonMessage
 import org.apache.lucene.search._
 import org.apache.lucene.index._
 import org.apache.lucene.document.{Field, StringField, Document}
@@ -8,7 +9,6 @@ import org.apache.lucene.analysis.core.KeywordAnalyzer
 import org.apache.lucene.util.Version
 import org.apache.lucene.queryparser.classic.QueryParser
 import scala.collection.JavaConverters._
-import com.example.domain.CommonMessage
 
 /**
  * Created with IntelliJ IDEA.

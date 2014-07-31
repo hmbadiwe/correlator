@@ -1,12 +1,11 @@
 package com.example.service.correlation
 
 import akka.actor._
-import com.example.service.correlation.CorrelationService
+import com.example.common.domain.{Create, CommonMessageList}
 
 import com.typesafe.config.ConfigFactory
-import scalaxx.util._
 import com.example.service.correlation.persistence.CorrelationPersistenceService
-import com.example.service.ticketing.Create
+import com.example.util._
 
 
 class CorrelationActor( persistenceServiceActor : ActorRef ) extends Actor with ActorLogging with CorrelationService{
@@ -29,7 +28,7 @@ class CorrelationActor( persistenceServiceActor : ActorRef ) extends Actor with 
       logger.info( s"CommonMessageList of size ${ commonMessageList.messageList.size } received")
       commonMessageList.messageList.foreach { message =>
        val correlatedAlarm = correlateAlarm( message )
-       GraphPoster( "Correlation", correlatedAlarm )
+       //GraphPoster( "Correlation", correlatedAlarm )
        val createMsg = Create( correlatedAlarm )
        logger.debug( "Correlation Actor sending message to ticketing")
        ticketingActor ! createMsg

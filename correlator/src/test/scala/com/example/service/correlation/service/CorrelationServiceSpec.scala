@@ -1,12 +1,15 @@
 package com.example.service.correlation.service
 
+import com.example.common.domain.CommonMessage
+import com.example.persistence.LuceneAlarmPersistence
+import com.example.service.SetupDirectory
 import org.scalatest.FlatSpec
 import org.scalatest.matchers.MustMatchers
 import com.example.service.correlation.{CorrelationService, TestCorrelationData}
 import org.apache.lucene.store.{Directory, RAMDirectory}
 
-import com.example.service.persistence.lucene.{LuceneAlarmPersistence, SetupDirectory}
-import scalaxx.util.CommonMessage
+
+
 
 
 class CorrelationServiceSpec extends FlatSpec with MustMatchers with TestCorrelationData {

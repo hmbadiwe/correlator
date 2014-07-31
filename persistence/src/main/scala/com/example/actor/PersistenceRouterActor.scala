@@ -1,7 +1,7 @@
 package com.example.actor
 
 import akka.actor.{ ActorLogging, ActorRef, Actor }
-import com.example.domain._
+import com.example.common.domain._
 import com.example.service.PersistenceService
 import com.example.utils.JsonParserUtils
 import scala.concurrent.duration._
@@ -9,7 +9,6 @@ import scala.concurrent.{Future, ExecutionContext, future}
 import scala.concurrent.Future._
 import akka.pattern.ask
 import akka.pattern.pipe
-import scala.util.Random
 import akka.util.Timeout
 
 /**

@@ -1,8 +1,10 @@
 package com.cisco.phalanx.persistence.lucene
 
+import com.example.common.domain.CommonMessage
+import com.example.persistence.lucene.QueryBuilder
 import org.scalatest.matchers.MustMatchers
 import org.scalatest.FlatSpec
-import scalaxx.util.CommonMessage
+
 
 
 class QueryBuilderSpec extends FlatSpec with MustMatchers with QueryBuilderSpecData{

@@ -1,5 +1,7 @@
 package com.example.service.correlation
 
+import com.example.common.domain.CommonMessage
+import com.example.persistence.AlarmPersistence
 import com.example.service.correlation.CorrelationService.findParametersFromMessage
 import org.slf4j.LoggerFactory
 

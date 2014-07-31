@@ -1,5 +1,6 @@
 package com.example.service.correlation
 
+import com.example.common.domain.CommonMessage
 
 
 trait TestCorrelationData {

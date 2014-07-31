@@ -1,12 +1,14 @@
 package com.cisco.phalanx.persistence.lucene
 
-import org.scalatest.FlatSpec
-import org.scalatest.matchers.MustMatchers
+import com.example.common.domain.CommonMessage
+import com.example.persistence.LuceneAlarmPersistence
+import com.example.service.SetupDirectory
+
 import org.apache.lucene.store.{Directory, RAMDirectory}
-import java.io.Serializable
-import scalaxx.util.CommonMessage
 
 import LuceneAlarmPersistence._
+import org.scalatest.FlatSpec
+import org.scalatest.matchers.MustMatchers
 
 class LuceneAlarmPersistenceSpec extends FlatSpec with MustMatchers{
   behavior of "Lucene Persistence Service"

@@ -3,9 +3,10 @@ package com.example.service.correlation
 import akka.actor.{ Props, ActorSystem}
 import akka.kernel.Bootable
 import akka.routing.RoundRobinRouter
+import com.example.actor.{PersistenceIODirectorActor, PersistenceRouterActor}
+import com.example.service.SetupDirectory
 import com.typesafe.config.ConfigFactory
-import com.example.service.persistence.actor.{PersistenceIODirectorActor, PersistenceRouterActor}
-import com.example.service.persistence.lucene.SetupDirectory
+
 
 
 class CorrelationActorSystem extends Bootable with SetupDirectory{
